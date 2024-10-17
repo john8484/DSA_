@@ -22,12 +22,9 @@ class LinkedList:
     def pop(self):
         if self.length == 0:
             return None
-        temp = pre = self.head
-        while temp.next:
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
         self.length -= 1
         if self.length == 0:
             self.head = self.tail = None
