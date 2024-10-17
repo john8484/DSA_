@@ -10,6 +10,16 @@ class LinkedList:
         self.head = self.tail = new_node
         self.length = 1
 
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True
+
     def append(self, value):
         new_node = Node(value)
         if self.length == 0:
@@ -50,11 +60,11 @@ print("Construct first node:")
 print(linked_list.head.value)
 
 # Add five more nodes
-linked_list.append(2)
-linked_list.append(3)
-linked_list.append(4)
-linked_list.append(5)
-linked_list.append(6)
+linked_list.prepend(2)
+linked_list.prepend(3)
+linked_list.prepend(4)
+linked_list.prepend(5)
+linked_list.prepend(6)
 print("Add:")
 print(linked_list.head.value)
 print(linked_list.head.next.value)
