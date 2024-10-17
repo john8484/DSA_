@@ -24,31 +24,30 @@ class List:
         count = 0
         for idx in self.data:
             if count == index:
-                self.data = self.data[:count] + [value] + self.data[count+1:]
+                self.data = self.data[:count] + [value] + self.data[count + 1 :]
                 break
             count += 1
         else:
-            print('Index out of range.')
+            print("Index out of range.")
 
 
 # Construct the list
 my_list = List()
 my_list.construct([1, 2, 3, 4])
-print('Construct:')
+print("Construct:")
 print(my_list.data)
 
 # append an item
 my_list.append(5)
-print('Add:')
+print("Add:")
 print(my_list.data)
 
 # Remove an item
 my_list.remove(3)
-print('Remove:')
+print("Remove:")
 print(my_list.data)
 
 # Update an item
 my_list.update(2, 10)
-print('Update:')
+print("Update:")
 print(my_list.data)
-

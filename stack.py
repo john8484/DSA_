@@ -3,6 +3,8 @@ class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
+
+
 class Stack:
     def __init__(self):
         self.top = None
@@ -29,7 +31,7 @@ print(stack.top.next.next.value)
 new_node = Node(4)
 new_node.next = stack.top
 stack.top = new_node
-print('Add:')
+print("Add:")
 print(stack.top.value)
 print(stack.top.next.value)
 print(stack.top.next.next.value)
@@ -38,7 +40,7 @@ print(stack.top.next.next.next.value)
 
 # Remove
 stack.top = stack.top.next
-print('Remove:')
+print("Remove:")
 print(stack.top.value)
 print(stack.top.next.value)
 print(stack.top.next.next.value)
@@ -46,7 +48,7 @@ print(stack.top.next.next.value)
 
 # Update
 stack.top.value = 91
-print('Update:')
+print("Update:")
 print(stack.top.value)
 print(stack.top.next.value)
 print(stack.top.next.next.value)

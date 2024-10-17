@@ -7,18 +7,15 @@ class Node:
 class Queue:
     def __init__(self, value):
         new_node = Node(value)
-        self.first = new_node
-        self.last = new_node
+        self.first = self.last = new_node
         self.length = 1
 
     def enqueue(self, value):
         new_node = Node(value)
         if self.first is None:
-            self.first = new_node
-            self.last = new_node
+            self.first = self.last = new_node
         else:
-            self.last.next = new_node
-            self.last = new_node
+            self.last.next = self.last = new_node
         self.length += 1
         return True
 
@@ -27,8 +24,7 @@ class Queue:
             return None
         temp = self.first
         if self.length == 1:
-            self.first = None
-            self.last = None
+            self.first = self.last = None
         else:
             self.first = self.first.next
             temp.next = None
@@ -51,7 +47,7 @@ class Queue:
 
 # Construct first node of queue
 my_queue = Queue(1)
-print('Construct first node:')
+print("Construct first node:")
 print(my_queue.first.value)
 
 # Add five more nodes
@@ -60,7 +56,7 @@ my_queue.enqueue(3)
 my_queue.enqueue(4)
 my_queue.enqueue(5)
 my_queue.enqueue(6)
-print('Add:')
+print("Add:")
 print(my_queue.first.value)
 print(my_queue.first.next.value)
 print(my_queue.first.next.next.value)
@@ -70,7 +66,7 @@ print(my_queue.first.next.next.next.next.next.value)
 
 # Remove first node in queue
 my_queue.dequeue()
-print('Remove:')
+print("Remove:")
 print(my_queue.first.value)
 print(my_queue.first.next.value)
 print(my_queue.first.next.next.value)
@@ -79,7 +75,7 @@ print(my_queue.first.next.next.next.next.value)
 
 # Update
 my_queue.update(2, 56)
-print('Update:')
+print("Update:")
 print(my_queue.first.value)
 print(my_queue.first.next.value)
 print(my_queue.first.next.next.value)
