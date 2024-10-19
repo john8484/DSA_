@@ -30,8 +30,7 @@ class LinkedList:
         return True
 
     def pop(self):
-        if self.length == 0:
-            return None
+        assert self.length != 0, "self.length must not be zero"
         temp = self.head
         self.head = self.head.next
         temp.next = None
@@ -41,8 +40,8 @@ class LinkedList:
         return temp
 
     def update(self, index, value):
-        if index < 0 or index >= self.length:
-            return None
+        assert index >= 0, "index must be greater than or equal to zero"
+        assert index < self.length, "index must be less than self.length"
         temp = self.head
         count = 0
         while count < index:
@@ -54,8 +53,8 @@ class LinkedList:
         return False
 
     def get(self, index):
-        if index < 0 or index >= self.length:
-            return None
+        assert index >= 0, "index must be greater than or equal to zero"
+        assert index < self.length, "index must be less than self.length"
         temp = self.head
         for _ in range(index):
             temp = temp.next
@@ -67,7 +66,7 @@ linked_list = LinkedList(0)
 print("Construct first node:")
 print(linked_list.get(0).value)
 
-# Add five more nodes
+# Prepend five more nodes
 linked_list.prepend(1)
 linked_list.prepend(2)
 linked_list.prepend(3)
