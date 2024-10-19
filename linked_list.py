@@ -53,40 +53,48 @@ class LinkedList:
             return True
         return False
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
 
 # Construct first node of linked list
-linked_list = LinkedList(1)
+linked_list = LinkedList(0)
 print("Construct first node:")
-print(linked_list.head.value)
+print(linked_list.get(0).value)
 
 # Add five more nodes
+linked_list.prepend(1)
 linked_list.prepend(2)
 linked_list.prepend(3)
 linked_list.prepend(4)
 linked_list.prepend(5)
-linked_list.prepend(6)
 print("Add:")
-print(linked_list.head.value)
-print(linked_list.head.next.value)
-print(linked_list.head.next.next.value)
-print(linked_list.head.next.next.next.value)
-print(linked_list.head.next.next.next.next.value)
-print(linked_list.head.next.next.next.next.next.value)
+print(linked_list.get(0).value)
+print(linked_list.get(1).value)
+print(linked_list.get(2).value)
+print(linked_list.get(3).value)
+print(linked_list.get(4).value)
+print(linked_list.get(5).value)
 
-# Remove last node
+# Remove first node
 linked_list.pop()
 print("Remove:")
-print(linked_list.head.value)
-print(linked_list.head.next.value)
-print(linked_list.head.next.next.value)
-print(linked_list.head.next.next.next.value)
-print(linked_list.head.next.next.next.next.value)
+print(linked_list.get(0).value)
+print(linked_list.get(1).value)
+print(linked_list.get(2).value)
+print(linked_list.get(3).value)
+print(linked_list.get(4).value)
 
 # Update
 linked_list.update(2, 56)
 print("Update:")
-print(linked_list.head.value)
-print(linked_list.head.next.value)
-print(linked_list.head.next.next.value)
-print(linked_list.head.next.next.next.value)
-print(linked_list.head.next.next.next.next.value)
+print(linked_list.get(0).value)
+print(linked_list.get(1).value)
+print(linked_list.get(2).value)
+print(linked_list.get(3).value)
+print(linked_list.get(4).value)
