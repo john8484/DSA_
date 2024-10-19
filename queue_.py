@@ -20,8 +20,7 @@ class Queue:
         return True
 
     def dequeue(self):
-        if self.length == 0:
-            return None
+        assert self.length > 0, "self.length must be greater than zero"
         temp = self.first
         if self.length == 1:
             self.first = self.last = None
@@ -32,8 +31,8 @@ class Queue:
         return temp
 
     def update(self, index, value):
-        if index < 0 or index >= self.length:
-            return None
+        assert index >= 0, "index must be greater than or equal to zero"
+        assert index < self.length, "index must be less than self.length"
         temp = self.first
         count = 0
         while count < index:
@@ -44,40 +43,48 @@ class Queue:
             return True
         return False
 
+    def get(self, index):
+        assert index >= 0, "index must be greater than or equal to zero"
+        assert index < self.length, "index must be less than self.length"
+        temp = self.first
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
 
 # Construct first node of queue
-my_queue = Queue(1)
 print("Construct first node:")
+my_queue = Queue(0)
 print(my_queue.first.value)
 
-# Add five more nodes
+# Enqueue five more nodes
+print("Add:")
+my_queue.enqueue(1)
 my_queue.enqueue(2)
 my_queue.enqueue(3)
 my_queue.enqueue(4)
 my_queue.enqueue(5)
-my_queue.enqueue(6)
-print("Add:")
-print(my_queue.first.value)
-print(my_queue.first.next.value)
-print(my_queue.first.next.next.value)
-print(my_queue.first.next.next.next.value)
-print(my_queue.first.next.next.next.next.value)
-print(my_queue.first.next.next.next.next.next.value)
+print(my_queue.get(0).value)
+print(my_queue.get(1).value)
+print(my_queue.get(2).value)
+print(my_queue.get(3).value)
+print(my_queue.get(4).value)
+print(my_queue.get(5).value)
 
-# Remove first node in queue
-my_queue.dequeue()
+# Dequeue first node in queue
 print("Remove:")
-print(my_queue.first.value)
-print(my_queue.first.next.value)
-print(my_queue.first.next.next.value)
-print(my_queue.first.next.next.next.value)
-print(my_queue.first.next.next.next.next.value)
+my_queue.dequeue()
+print(my_queue.get(0).value)
+print(my_queue.get(1).value)
+print(my_queue.get(2).value)
+print(my_queue.get(3).value)
+print(my_queue.get(4).value)
 
 # Update
-my_queue.update(2, 56)
 print("Update:")
-print(my_queue.first.value)
-print(my_queue.first.next.value)
-print(my_queue.first.next.next.value)
-print(my_queue.first.next.next.next.value)
-print(my_queue.first.next.next.next.next.value)
+my_queue.update(2, 56)
+print(my_queue.get(0).value)
+print(my_queue.get(1).value)
+print(my_queue.get(2).value)
+print(my_queue.get(3).value)
+print(my_queue.get(4).value)

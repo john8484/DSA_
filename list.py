@@ -21,6 +21,8 @@ class List:
         self.data = new_data
 
     def update(self, index, value):
+        assert index >= 0, "index must be greater than or equal to zero"
+        assert index < len(self.data), "index must be less than the list's length"
         self.data[index] = value
 
 

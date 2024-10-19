@@ -30,7 +30,7 @@ class LinkedList:
         return True
 
     def pop(self):
-        assert self.length != 0, "self.length must not be zero"
+        assert self.length > 0, "self.length must be greater than zero"
         temp = self.head
         self.head = self.head.next
         temp.next = None
@@ -62,17 +62,17 @@ class LinkedList:
 
 
 # Construct first node of linked list
-linked_list = LinkedList(0)
 print("Construct first node:")
+linked_list = LinkedList(0)
 print(linked_list.get(0).value)
 
 # Prepend five more nodes
+print("Add:")
 linked_list.prepend(1)
 linked_list.prepend(2)
 linked_list.prepend(3)
 linked_list.prepend(4)
 linked_list.prepend(5)
-print("Add:")
 print(linked_list.get(0).value)
 print(linked_list.get(1).value)
 print(linked_list.get(2).value)
@@ -80,9 +80,9 @@ print(linked_list.get(3).value)
 print(linked_list.get(4).value)
 print(linked_list.get(5).value)
 
-# Remove first node
-linked_list.pop()
+# Pop first node
 print("Remove:")
+linked_list.pop()
 print(linked_list.get(0).value)
 print(linked_list.get(1).value)
 print(linked_list.get(2).value)
@@ -90,8 +90,8 @@ print(linked_list.get(3).value)
 print(linked_list.get(4).value)
 
 # Update
-linked_list.update(2, 56)
 print("Update:")
+linked_list.update(2, 56)
 print(linked_list.get(0).value)
 print(linked_list.get(1).value)
 print(linked_list.get(2).value)
