@@ -21,24 +21,17 @@ class List:
         self.data = new_data
 
     def update(self, index, value):
-        count = 0
-        for idx in self.data:
-            if count == index:
-                self.data = self.data[:count] + [value] + self.data[count + 1 :]
-                break
-            count += 1
-        else:
-            print("Index out of range.")
+        self.data[index] = value
 
 
 # Construct the list
 my_list = List()
-my_list.construct([1, 2, 3, 4])
+my_list.construct([1, 2, 3, 4, 5])
 print("Construct:")
 print(my_list.data)
 
 # append an item
-my_list.append(5)
+my_list.append(6)
 print("Add:")
 print(my_list.data)
 
